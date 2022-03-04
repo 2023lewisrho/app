@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components"
 
 
@@ -54,7 +55,32 @@ const InputText = styled.p`
     margin-bottom: 0.1em;
 `;
 
+const ErrorText = styled.p`
+    width: 100%;
+    text-align: left;
+    font-size: 0.75em;
+    margin-bottom: 0.1em;
+    color: red;
+`;
+
+
 function LoginPage() {
+    const [user, setUser] = useState({
+        id:"",
+        passwd:""
+    });
+
+    let errMsg = "";
+
+    const navigateToMainPage = () => {
+        if (user.id !== "" && user.passwd !== "") {
+            window.location.href = "/";
+        } else {
+            errMsg = "Invalid Username and/or Password!";
+            alert("Invalid Username and/or Password!");
+        }
+    }
+
     return (
         <div>
         <WelcomeTitle>Log In</WelcomeTitle>
@@ -64,14 +90,14 @@ function LoginPage() {
                 <h2>Welcome to GenericService!</h2>
                 <InputContainer>
                     <InputText>Username</InputText>
-                    <InputBox type="usename"></InputBox>
+                    <InputBox type="usename" onChange={e => {setUser(user.id=e)}}></InputBox>
                 </InputContainer> 
                 <InputContainer>
                     <InputText>Password</InputText>
-                    <InputBox type="password"></InputBox>
+                    <InputBox type="password" onChange={e => {setUser(user.passwd=e)}}></InputBox>
                 </InputContainer>
-                <p></p>
-                <InputButton type="button" value="Log In"></InputButton>
+                <ErrorText>{errMsg}</ErrorText>
+                <InputButton type="button" value="Log In" onClick={navigateToMainPage}></InputButton>
             </LoginElementContainer>
         </BackGround>
         </div>
