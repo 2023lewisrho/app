@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components"
+import { useNavigate } from "react-router-dom"
 
 
 const BackGround = styled.div`
@@ -65,18 +66,18 @@ const ErrorText = styled.p`
 
 
 function LoginPage() {
+    const history = useNavigate();
     const [user, setUser] = useState({
         id:"",
         passwd:""
     });
 
-    let errMsg = "";
+    const errMsg = useState({ err_msg: "" });
 
     const navigateToMainPage = () => {
         if (user.id !== "" && user.passwd !== "") {
-            window.location.href = "/";
+            history("/");
         } else {
-            errMsg = "Invalid Username and/or Password!";
             alert("Invalid Username and/or Password!");
         }
     }
@@ -96,7 +97,7 @@ function LoginPage() {
                     <InputText>Password</InputText>
                     <InputBox type="password" onChange={e => {setUser(user.passwd=e)}}></InputBox>
                 </InputContainer>
-                <ErrorText>{errMsg}</ErrorText>
+                <ErrorText>{errMsg.err_msg}</ErrorText>
                 <InputButton type="button" value="Log In" onClick={navigateToMainPage}></InputButton>
             </LoginElementContainer>
         </BackGround>
