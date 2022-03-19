@@ -75,7 +75,7 @@ function LoginPage() {
     const errMsg = useState({ err_msg: "" });
 
     const navigateToMainPage = () => {
-        if (user.id !== "" && user.passwd !== "") {
+        if (user.id !== "" && user.passwd === "1234") {
             history("/");
         } else {
             alert("Invalid Username and/or Password!");
