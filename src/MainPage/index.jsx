@@ -7,6 +7,8 @@ const MainFlexContainer = styled.div`
     align-content: center;
     text-align: center;
     height: 100vh;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
 `;
 
 const CenterSvg = styled.svg`
@@ -17,7 +19,17 @@ const CenterImg = styled.img`
     margin: 0 auto;
 `
 
+const LearnMoreButton = styled.button`
+    width: 10%;
+    height: 5%;
+    margin: 0 auto;
+`
+
 function MainPage() {
+    function toLearnMore() {
+        window.location.href = "learnmore";
+    }
+
     return (
         <MainFlexContainer>
             <h1>hi im l. rho</h1>
@@ -29,6 +41,7 @@ function MainPage() {
                  GitHub
             </a>
             <CenterImg src="https://rustacean.net/more-crabby-things/squishable-ferris.jpg" alt="crabbo" width="400px" height="400px" />
+            <LearnMoreButton onClick={toLearnMore}>Learn More</LearnMoreButton>
         </MainFlexContainer>
     );
 }
