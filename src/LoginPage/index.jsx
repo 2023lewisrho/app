@@ -75,17 +75,20 @@ function LoginPage() {
     const errMsg = useState({ err_msg: "" });
 
     const navigateToMainPage = () => {
-        console.log(user.id)
-        console.log(user.passwd)
-        if (user.id !== "" && user.passwd == "1234") {
+        if (user.id !== "" && user.passwd === "1234") {
             history("/");
         } else {
             alert("Invalid Username and/or Password!");
         }
     }
 
-    const setUserId(e) {
-        setUser(user.id = e.target.value)
+    function setUserId(e) {
+        setUser({ id: e.target.value })
+    }
+
+
+    function setUserPasswd(e) {
+        setUser({ passwd: e.target.value })
     }
 
     return (
@@ -97,11 +100,11 @@ function LoginPage() {
                 <h2>Welcome to GenericService!</h2>
                 <InputContainer>
                     <InputText>Username</InputText>
-                    <InputBox type="username" onChange={e => {console.log(e); setUser(user.id=e.target.value)}}></InputBox>
+                    <InputBox type="username" onChange={e => {setUserId(e)}}></InputBox>
                 </InputContainer> 
                 <InputContainer>
                     <InputText>Password</InputText>
-                    <InputBox type="password" onChange={e => {console.log(e); setUser(user.passwd=e.target.value)}}></InputBox>
+                    <InputBox type="password" onChange={e => {setUserPasswd(e)}}></InputBox>
                 </InputContainer>
                 <ErrorText>{errMsg.err_msg}</ErrorText>
                 <InputButton type="button" value="Log In" onClick={navigateToMainPage}></InputButton>
