@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const MainFlexContainer = styled.div`
@@ -26,8 +27,9 @@ const LearnMoreButton = styled.button`
 `
 
 function MainPage() {
+    const history = useNavigate();
     function toLearnMore() {
-        window.location.href = "learnmore";
+        history('/learnmore');
     }
 
     return (

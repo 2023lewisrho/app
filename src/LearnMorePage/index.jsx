@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import ProgressBar from 'react-bootstrap/ProgressBar';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const MainFlexContainer = styled.div`
     display: flex;
@@ -15,21 +17,15 @@ const MainFlexContainer = styled.div`
 
 const AlignLeftSplitHalfGrid = styled.div`
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: minmax(100%, auto);
-    gap: 5%;
-    width: 100%;
     text-align: left;
 `;
 
 const LeftGrid = styled.div`
     grid-column: 1;
-    grid-row: 1;
 `;
 
 const RightGrid = styled.div`
     grid-column: 2;
-    grid-row: 1;
 `;
 
 const ResizeImg = styled.img`
@@ -61,25 +57,82 @@ function LearnMorePage() {
                     <p>THE KNOWLEDGE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF UNLEASHING INDESCRIBABLE HORRORS THAT SHATTER YOUR PSYCHE AND SET YOUR MIND ADRIFT IN THE UNKNOWABLY INFINITE COSMOS.</p>
                     <p>haha crabbo go z o o o o o o o o m :DDDDDD</p>
                     <AlignLeftSplitHalfGrid>
-                        <LeftGrid>
-                            <p>Name</p>
-                            <p>Email</p>
-                            <p>Phone</p>
-                            <p>DoB</p>
-                        </LeftGrid>
-                        <RightGrid style={ {textAlign: "right"} }>
-                            <p>L. Rho</p> 
-                            <p>[EMAIL PROTECTION ACTIVE]</p>
-                            <p>1234567890</p>
-                            <p>older than you are</p>
-                        </RightGrid>
+                        <p style={{
+                            gridColumn: 1,
+                            gridRow: 1,
+                        }}>Name</p>
+                        <p style={{
+                            gridColumn: 1,
+                            gridRow: 2,
+                        }}>Email</p>
+                        <p style={{
+                            gridColumn: 1,
+                            gridRow: 3,
+                        }}>Phone</p>
+                        <p style={{
+                            gridColumn: 1,
+                            gridRow: 4,
+                        }}>DoB</p>
+                        <p style={{
+                            gridColumn: 2,
+                            gridRow: 1,
+                        }}>L. Rho</p> 
+                        <p style={{
+                            gridColumn: 2,
+                            gridRow: 2,
+                        }}>[REDACTED]</p>
+                        <p style={{
+                            gridColumn: 2,
+                            gridRow: 3,
+                        }}>1234567890</p>
+                        <p style={{
+                            gridColumn: 2,
+                            gridRow: 4,
+                        }}>older than you are</p>
                     </AlignLeftSplitHalfGrid>
-
                 </RightGrid>
             </AlignLeftSplitHalfGrid>
-            <h1 style={{ paddingTop: "80vh" }}>Education</h1>
-            <ResizeImg src="https://i.redd.it/9dzlqi2ew7f81.jpg" alt="average rust user" />
-            <p>education? whats that??</p>
+            <div>
+
+                <h1 style={{ paddingTop: "80vh" }}>Education</h1>
+                <p>education? whats that??</p>
+                <AlignLeftSplitHalfGrid>
+                    <p style={{
+                            gridColumn: 1,
+                            gridRow: 1,
+                        }}>GPA</p>
+                    <p style={{
+                            gridColumn: 1,
+                            gridRow: 2,
+                        }}>SAT</p>
+                    <p style={{
+                            gridColumn: 1,
+                            gridRow: 3,
+                        }}>POG</p>
+                    <p style={{
+                            gridColumn: 1,
+                            gridRow: 4,
+                        }}>BAGET</p>
+                    <ProgressBar style={{
+                            gridColumn: 2,
+                            gridRow: 1,
+                        }} min={0.0} max={5.0} now={3.14159} label={"3.14/5.0"} />
+                    <ProgressBar style={{
+                            gridColumn: 2,
+                            gridRow: 2,
+                        }} min={0.0} max={1500.0} now={1480.0} label={"1480/1500"} />
+                    <ProgressBar style={{
+                            gridColumn: 2,
+                            gridRow: 3,
+                        }} min={0.0} max={10.0} now={9} label={"9/10"} />
+                    <ProgressBar style={{
+                            gridColumn: 2,
+                            gridRow: 4,
+                        }} min={0.0} max={5.0} now={3.14159} label={"3.14/5.0"} />
+                </AlignLeftSplitHalfGrid>
+
+
+            </div>
         </MainFlexContainer>
     );
 }
