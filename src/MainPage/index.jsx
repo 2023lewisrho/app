@@ -22,14 +22,19 @@ const CenterImg = styled.img`
 
 const LearnMoreButton = styled.button`
     width: 10%;
-    height: 5%;
     margin: 0 auto;
 `
 
 function MainPage() {
     const history = useNavigate();
     function toLearnMore() {
-        history('/learnmore');
+        history(`/learnmore`);
+    }
+    function toLogin() {
+        history(`/login`);
+    }
+    function toUgly() {
+        history(`/ugly`);
     }
 
     return (
@@ -43,7 +48,11 @@ function MainPage() {
                  GitHub
             </a>
             <CenterImg src="https://rustacean.net/more-crabby-things/squishable-ferris.jpg" alt="crabbo" width="400px" height="400px" />
-            <LearnMoreButton onClick={toLearnMore}>Learn More</LearnMoreButton>
+            <div>
+                <LearnMoreButton onClick={toLearnMore}>Learn More</LearnMoreButton>
+                <LearnMoreButton onClick={toLogin}>Log In</LearnMoreButton>
+                <LearnMoreButton onClick={toUgly}>Ugly?</LearnMoreButton>
+            </div>
         </MainFlexContainer>
     );
 }
